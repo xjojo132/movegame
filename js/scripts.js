@@ -20,5 +20,9 @@ function move() {
 }
 
 function fStart(){
-    setInterval(move)
+    let interval = setInterval(move, 500);
+}
+
+function fStop(){
+    clearInterval(interval);
 }

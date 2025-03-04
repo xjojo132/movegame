@@ -3,6 +3,8 @@
     width: 800px;
     height: 600px;
     background-color: aquamarine;
+    margin: 0px;
+    border: 1px black solid;
 }
 #moveDiv{
     position: absolute;

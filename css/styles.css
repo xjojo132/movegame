@@ -1,7 +1,7 @@
 #container{
     position: relative;
     width: 800px;
-    height: 600px;
+    height: 610px;
     background-color: aquamarine;
     margin: 0px;
     border: 1px black solid;
@@ -21,4 +21,14 @@
 }
 button{
     height: 20px;
+}
+
+#hitDiv{
+    height: 20px;
+    width: 200px;    
+    top: 590px;
+    background-color: red;
+    position: relative;
+    text-align: center;
+    color: white;
 }

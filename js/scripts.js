@@ -4,9 +4,11 @@ let contWidth = 800;
 let contHeight = 600;
 let mvDivWidth = 20;
 let mvDivHeight = 20;
+let posX
 let mvDiv = document.getElementById("moveDiv");
 let contDiv = document.getElementById("container");
 let hDiv = document.getElementById("hitDiv");
+let hitBoxDiv = document.getElementById("hitBox");
 let score = 0;
 let mis = true;
 let interval;
@@ -15,6 +17,12 @@ let rectMvDiv;
 let elementMvDiv = document.querySelector("#moveDiv");
 let rectHDiv;
 let elementHDiv = document.querySelector("#hitDiv");
+let MDis;
+let hitPoints = 10;
+let hDivEind = 500;
+let hDivBegin = 100;
+let lvlMove;
+
 
 rectMvDiv = elementMvDiv.getBoundingClientRect();
 rectHDiv = elementHDiv.getBoundingClientRect();
@@ -23,10 +31,25 @@ console.log(rectMvDiv.top, rectMvDiv.left, rectMvDiv.width, rectMvDiv.height);
 console.log(rectHDiv.top, rectHDiv.left, rectHDiv.width, rectHDiv.height);
 
 function move() {
+
+
+
+  if(score <= 10)                            {  lvlMove = 100;                    hitDivWidth = 200; }
+  if(score > 100 && score <= 200)   { hitPoints = 15; hitDivWidth = 150; lvlMove = 75; hDivBegin = 75; hDivEind = 525;}
+  if(score > 200 && score <= 300)   { hitPoints = 20; hitDivWidth = 100; lvlMove = 50; hDivBegin = 50; hDivEind = 550;}
+  if(score > 300 )                            { hitPoints = 25; hitDivWidth = 50;   lvlMove = 25; hDivBegin = 25; hDivEind = 575;}
+  if(score > 400)                             { hitPoints = 30; aantalMs = 5; fStop(); fStart(); }
+  if(score > 500)                             { hitPoints = 40; aantalMs = 3; fStop(); fStart(); }
+  hDiv.style.width = hitDivWidth + "px";
+  hDiv.innerHTML = hitPoints;
+  
+
+
+
   // console.log("in move function");
   let yPos = mvDiv.offsetTop;
   // console.log("yPos = " + yPos);
-  if (yPos + stepY > 580) {
+  if (yPos + stepY > 380) {
     stepY = -stepY;
   } else if (yPos + stepY < -5) {
     stepY = 2;
@@ -35,7 +58,7 @@ function move() {
 
   let xPos = mvDiv.offsetLeft;
   // console.log("xPos = " + xPos);
-  if (xPos + stepX > 780) {
+  if (xPos + stepX > 580) {
     stepX = -stepX;
   } else if (xPos + stepX < 0) {
     stepX = 1;
@@ -55,17 +78,21 @@ function move() {
       console.log("for werkt");
       if (i == Math.round(rectMvDiv.left) + 10) {
         console.log("hit");
-        score += 2;
+        score += 10;
         mis = false;
-        document.getElementById("hitDiv").innerHTML = score;
+        document.getElementById("hitDiv").innerHTML = hitPoints;
+        document.getElementById("score").innerHTML = score;
         console.log(mis);
       }
     }
     if (mis == true) {
       console.log("mis");
-      score -= 2;
-      document.getElementById("hitDiv").innerHTML = score;
-    }
+      score -= 10;
+        document.getElementById("score").innerHTML = score;
+        document.getElementById("hitDiv").innerHTML = hitPoints;
+     
+    } 
+    mis = true;
   }
 }
 
@@ -88,8 +115,41 @@ function reset() {
   mvDiv.style.left = 10 + "px";
   mvDiv.style.top = 10 + "px";
 }
-function showCoords(event){
-    let x = event.clientX;
-let y = event.clientY;  
-console.log(x, y)
+
+// function showCoords(event){
+//     let x = event.clientX;
+//     let y = event.clientY;  
+//     console.log(x, y, "hallo")
+// }
+// document.getElementById("container").addEventListener("mousemove", showCoords);
+
+// document.getElementById("container").onmousemove = showCoords;
+
+function showCoords(event) {
+  mouseX = event.offsetX;
+  mouseY = event.offsetY;
+    // console.log(mouseX, mouseY, "hallo")
 }
+contDiv.onmousemove = showCoords;
+
+function mouseClick(event) {
+  console.log("mouseX + hitDivWidth  = " + (mouseX + rectHDiv.width));
+  posX = mouseX;
+  MDis = (mouseX - lvlMove)
+  if (event.button == 0) {
+    if (posX >= hDivEind){
+      hDiv.style.left =  400 + "px";
+      console.log("hala")
+    } else if(posX <= hDivBegin){
+      hDiv.style.left =  0 + "px";
+      console.log("hala")
+    }else {
+      hDiv.style.left =  MDis + "px";
+      console.log("hala")
+    }
+      
+      // hDiv.style.left =  MDis + "px";
+  }
+}
+hitBoxDiv.onmousedown = mouseClick;
+

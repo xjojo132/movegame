@@ -1,11 +1,11 @@
 #container{
     position: relative;
-    width: 800px;
-    height: 620px;
+    width: 600px;
+    height: 420px;
     background-color: aquamarine;
     margin: 0px;
     border: 1px black solid;
-    z-index: -3;
+    z-index: 2;
 }
 #moveDiv{
     position: absolute;
@@ -18,7 +18,7 @@
 #row{
     display: flex;
     flex-direction: row;
-
+    z-index: 1;
 }
 button{
     height: 20px;
@@ -27,20 +27,28 @@ button{
 #hitDiv{
     height: 20px;
     width: 200px;    
-    top: 600px;
+    top: 400px;
     background-color: red;
     position: absolute;
     text-align: center;
     color: white;
-    z-index: -1;
+    z-index: 4;
 
+}
+
+#backHitBox{
+    position: relative;
+    background-color: darkgreen;
+    width: 600px;
+    height: 20px;
+    top: 400px;
+    z-index: 3;
 }
 
 #hitBox{
     position: relative;
-    background-color: darkgreen;
-    width: 800px;
+    top: 400;
+    width: 600;
     height: 20px;
-    top: 600px;
-z-index: -2;
+    z-index: 5;
 }

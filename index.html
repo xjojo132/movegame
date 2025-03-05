@@ -2,30 +2,27 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/styles.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 
 <body>
-    <div id="row">
-        <div id="container">
-            <div id="moveDiv">
-
-            </div>
-            <div id="hitDiv">
-                0
-            </div>
-        </div>
-        <button onclick="fStart()">start</button>
-        <button onclick="fStop()">stop</button>
-        <button onclick="reset()">reset</button>
-
+  <div id="row">
+    <div id="container" onclick="showCoords(event)">
+      <div id="moveDiv"></div>
+      <div id="hitDiv">0</div>
+      <div id="hitBox"></div>
     </div>
+    
+      <button onclick="fStart()">start</button>
+      <button onclick="fStop()">stop</button>
+      <button onclick="reset()">reset</button>
+    
+  </div>
 
-    <script src="js/scripts.js"></script>
+  <script src="js/scripts.js"></script>
 </body>
 
 </html>

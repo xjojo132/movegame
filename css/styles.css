@@ -1,10 +1,11 @@
 #container{
     position: relative;
     width: 800px;
-    height: 610px;
+    height: 620px;
     background-color: aquamarine;
     margin: 0px;
     border: 1px black solid;
+    z-index: -3;
 }
 #moveDiv{
     position: absolute;
@@ -26,9 +27,20 @@ button{
 #hitDiv{
     height: 20px;
     width: 200px;    
-    top: 590px;
+    top: 600px;
     background-color: red;
-    position: relative;
+    position: absolute;
     text-align: center;
     color: white;
+    z-index: -1;
+
+}
+
+#hitBox{
+    position: relative;
+    background-color: darkgreen;
+    width: 800px;
+    height: 20px;
+    top: 600px;
+z-index: -2;
 }

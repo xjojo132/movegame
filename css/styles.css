@@ -1,54 +1,53 @@
-#container{
-    position: relative;
-    width: 600px;
-    height: 420px;
-    background-color: aquamarine;
-    margin: 0px;
-    border: 1px black solid;
-    z-index: 2;
+#container {
+	position: relative;
+	width: 600px;
+	height: 420px;
+	background-color: green;
+	margin: 0px;
+	border: 1px black solid;
+	z-index: 2;
 }
-#moveDiv{
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: blue;
-    top: 10px;
-    left: 10px;
+#moveDiv {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	background-color: black;
+	top: 10px;
+	left: 10px;
 }
-#row{
-    display: flex;
-    flex-direction: row;
-    z-index: 1;
+#row {
+	display: flex;
+	flex-direction: row;
+	z-index: 1;
 }
-button{
-    height: 20px;
-}
-
-#hitDiv{
-    height: 20px;
-    width: 200px;    
-    top: 400px;
-    background-color: red;
-    position: absolute;
-    text-align: center;
-    color: white;
-    z-index: 4;
-
+button {
+	height: 20px;
 }
 
-#backHitBox{
-    position: relative;
-    background-color: darkgreen;
-    width: 600px;
-    height: 20px;
-    top: 400px;
-    z-index: 3;
+#hitDiv {
+	height: 20px;
+	width: 200px;
+	top: 400px;
+	background-color: darkgreen;
+	position: absolute;
+	text-align: center;
+	color: white;
+	z-index: 4;
 }
 
-#hitBox{
-    position: relative;
-    top: 400;
-    width: 600;
-    height: 20px;
-    z-index: 5;
+#backHitBox {
+	position: relative;
+	background-color: red;
+	width: 600px;
+	height: 20px;
+	top: 400px;
+	z-index: 3;
+}
+
+#hitBox {
+	position: relative;
+	top: 400;
+	width: 600;
+	height: 20px;
+	z-index: 5;
 }

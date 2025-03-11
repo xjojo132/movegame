@@ -32,6 +32,8 @@ console.log(rectHDiv.top, rectHDiv.left, rectHDiv.width, rectHDiv.height);
 
 function move() {
 
+	//de scoring/lvls 
+
 	if (score <= 10) { lvlMove = 100; hitDivWidth = 200; }
 	if (score > 100 && score <= 200) { hitPoints = 15; hitDivWidth = 150; lvlMove = 75; hDivBegin = 75; hDivEind = 525; }
 	if (score > 200 && score <= 300) { hitPoints = 20; hitDivWidth = 100; lvlMove = 50; hDivBegin = 50; hDivEind = 550; }
@@ -41,7 +43,7 @@ function move() {
 	hDiv.style.width = hitDivWidth + "px";
 	hDiv.innerHTML = hitPoints;
 
-
+     //y move 
 	// console.log("in move function");
 	let yPos = mvDiv.offsetTop;
 	// console.log("yPos = " + yPos);
@@ -51,7 +53,9 @@ function move() {
 		stepY = 1;
 	}
 	mvDiv.style.top = yPos + stepY + "px";
-
+	
+	
+	//x move
 	let xPos = mvDiv.offsetLeft;
 	// console.log("xPos = " + xPos);
 	if (xPos + stepX > 580) {
@@ -60,7 +64,9 @@ function move() {
 		stepX = 1;
 	}
 	mvDiv.style.left = xPos + stepX + "px";
+	
 
+	// hit reg
 	rectMvDiv = elementMvDiv.getBoundingClientRect();
 	rectHDiv = elementHDiv.getBoundingClientRect();
 	// console.log (rectHDiv.top, rectMvDiv.top + 10)
@@ -127,6 +133,7 @@ function reset() {
 
 // document.getElementById("container").onmousemove = showCoords;
 
+
 function showCoords(event) {
 	mouseX = event.offsetX;
 	mouseY = event.offsetY;
@@ -134,6 +141,8 @@ function showCoords(event) {
 }
 contDiv.onmousemove = showCoords;
 
+
+//func om de balk onderin telaten bewegen 
 function mouseClick(event) {
 	console.log("mouseX + hitDivWidth  = " + (mouseX + rectHDiv.width));
 	posX = mouseX;
